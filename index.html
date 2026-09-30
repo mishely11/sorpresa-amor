@@ -1,0 +1,5280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Nuestra fecha especial ❤️</title>
+
+<style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255, 50, 100, 0.16),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #08080c,
+            #180a12 55%,
+            #08080c
+        );
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+}
+
+.container {
+    width: 95%;
+    max-width: 1100px;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+
+/* =====================================================
+   TITULO
+===================================================== */
+
+.race-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.title-heart {
+    color: #ff315b;
+    font-size: 22px;
+    margin-bottom: 4px;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(255,49,91,0.6)
+        );
+
+    animation:
+        titleHeart 1.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes titleHeart {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.race-title h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(26px, 4vw, 40px);
+
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff6685,
+            #ffd6df,
+            #ff6685
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,70,110,0.22)
+        );
+}
+
+.race-title p {
+
+    margin:
+        8px 0 0;
+
+    color: #d8aeb8;
+
+    font-size: 15px;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =====================================================
+   CARRERA
+===================================================== */
+
+.race-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: #0b0b0f;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    box-shadow:
+
+        0 20px 60px
+        rgba(0,0,0,0.55),
+
+        0 0 45px
+        rgba(255,35,80,0.08);
+}
+
+#raceSvg {
+
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* =====================================================
+   LUCES
+===================================================== */
+
+.light {
+
+    fill: #ff315b;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            #ff315b
+        );
+}
+
+.light.white {
+
+    fill: white;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            white
+        );
+}
+
+
+/* =====================================================
+   CARRO PRINCIPAL
+===================================================== */
+
+#car {
+
+    transform-origin: center;
+    transform-box: fill-box;
+    will-change: transform;
+}
+
+
+/* =====================================================
+   BOTON CORAZON
+===================================================== */
+
+.controls {
+
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.heart-button {
+
+    width: 100px;
+    height: 100px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-button svg {
+
+    width: 78px;
+    height: 78px;
+
+    fill: #e51d4f;
+
+    stroke: #ff7a98;
+    stroke-width: 0.8;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,40,90,0.5)
+        );
+
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+.heart-button:hover svg {
+
+    transform: scale(1.08);
+
+    filter:
+
+        drop-shadow(
+            0 0 12px
+            #ff315b
+        )
+
+        drop-shadow(
+            0 0 25px
+            #ff315b
+        );
+}
+
+.heart-button:active svg {
+    transform: scale(0.88);
+}
+
+.heart-button.glow svg {
+
+    animation:
+        heartGlow 0.85s ease;
+}
+
+@keyframes heartGlow {
+
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.22);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.start-text {
+
+    margin-top: 4px;
+
+    color: #ffd4dd;
+
+    font-size: 14px;
+}
+
+.message {
+
+    min-height: 25px;
+
+    margin-top: 14px;
+
+    color: #ff9aad;
+
+    font-weight: 600;
+}
+
+.message.finished {
+
+    animation:
+        pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+
+/* =====================================================
+   CONTRASEÑA
+===================================================== */
+
+.password-screen {
+
+    display: none;
+
+    max-width: 500px;
+
+    margin:
+        10px auto 0;
+
+    padding:
+        35px 25px;
+
+    border-radius: 30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,40,85,0.06)
+        );
+
+    border:
+        1px solid
+        rgba(255,100,130,0.22);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0,0,0,0.45),
+
+        0 0 35px
+        rgba(255,40,80,0.08);
+}
+
+.password-screen.show {
+
+    display: block;
+
+    animation:
+        screenAppear 0.8s ease;
+}
+
+@keyframes screenAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.password-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+    animation:
+        floating 2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes floating {
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.password-screen h2 {
+
+    margin:
+        5px 0 12px;
+
+    font-size: 30px;
+
+    color: #ff8fa5;
+}
+
+.password-screen p {
+
+    color: #f4dce2;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   DISPLAY CONTRASEÑA
+===================================================== */
+
+.password-display {
+
+    width: 230px;
+
+    min-height: 54px;
+
+    margin:
+        22px auto 20px;
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    border:
+        1px solid
+        rgba(255,100,130,0.25);
+
+    color: white;
+
+    font-size: 25px;
+
+    letter-spacing: 9px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =====================================================
+   TECLADO
+===================================================== */
+
+.keypad {
+
+    width: 270px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+.key {
+
+    height: 58px;
+
+    border:
+        1px solid
+        rgba(255,120,145,0.2);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        0.15s;
+}
+
+.key:hover {
+
+    background:
+        rgba(255,70,110,0.18);
+
+    border-color:
+        rgba(255,100,130,0.5);
+}
+
+.key:active {
+
+    transform: scale(0.92);
+
+    background:
+        rgba(255,50,90,0.35);
+}
+
+.key.delete {
+    color: #ff8ca2;
+}
+
+.key.enter {
+    color: #ffb3c1;
+}
+
+.password-error {
+
+    min-height: 25px;
+
+    margin-top: 15px;
+
+    color: #ff718d;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   UNIVERSO / REGALO
+===================================================== */
+
+.gift-screen {
+
+    display: none;
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    min-height: 600px;
+
+    margin: 10px auto;
+
+    padding:
+        45px 25px 50px;
+
+    border-radius: 35px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(104,70,255,0.16),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.05),
+            transparent 20%
+        ),
+
+        linear-gradient(
+            180deg,
+            #03040c,
+            #080716 55%,
+            #02030a
+        );
+
+    border:
+        1px solid
+        rgba(170,150,255,0.18);
+
+    box-shadow:
+
+        0 30px 90px
+        rgba(0,0,0,0.6),
+
+        0 0 70px
+        rgba(95,65,255,0.08);
+}
+
+.gift-screen.show {
+
+    display: block;
+
+    animation:
+        universeAppear 1.2s ease;
+}
+
+@keyframes universeAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.92);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   ESTRELLAS
+===================================================== */
+
+.star {
+
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 7px white;
+
+    animation:
+        twinkle 2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.star.s1 { top: 9%; left: 9%; }
+.star.s2 { top: 18%; left: 23%; animation-delay: .5s; }
+.star.s3 { top: 11%; right: 15%; animation-delay: .8s; }
+.star.s4 { top: 32%; right: 7%; animation-delay: 1.1s; }
+.star.s5 { top: 50%; left: 6%; animation-delay: .4s; }
+.star.s6 { top: 61%; right: 10%; animation-delay: .9s; }
+.star.s7 { bottom: 16%; left: 18%; animation-delay: .3s; }
+.star.s8 { bottom: 11%; right: 27%; animation-delay: 1.3s; }
+.star.s9 { top: 42%; left: 18%; animation-delay: .7s; }
+.star.s10 { top: 72%; right: 20%; animation-delay: .2s; }
+
+
+/* =====================================================
+   SATURNO
+===================================================== */
+
+.saturn-container {
+
+    position: relative;
+
+    width: 310px;
+    height: 250px;
+
+    margin:
+        0 auto 5px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.saturn-ring-back {
+
+    position: absolute;
+
+    width: 310px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    border:
+        16px solid
+        rgba(205,175,130,0.7);
+
+    transform:
+        rotate(-13deg)
+        skewX(-10deg);
+
+    box-shadow:
+
+        0 0 8px
+        rgba(255,218,170,0.35),
+
+        inset 0 0 8px
+        rgba(255,255,255,0.25);
+
+    animation:
+        saturnFloat 4s
+        ease-in-out
+        infinite;
+}
+
+.saturn-planet {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 145px;
+    height: 145px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #f7e4b9 0%,
+            #d3a76d 28%,
+            #9a6d3f 58%,
+            #604329 100%
+        );
+
+    box-shadow:
+
+        inset -20px -15px 30px
+        rgba(20,10,0,0.5),
+
+        inset 15px 10px 20px
+        rgba(255,235,190,0.3),
+
+        0 0 30px
+        rgba(220,180,120,0.25);
+
+    animation:
+        planetFloat 4s
+        ease-in-out
+        infinite;
+}
+
+.saturn-planet::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15px;
+    top: 44px;
+
+    width: 115px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(91,60,35,0.35);
+
+    transform:
+        rotate(-10deg);
+}
+
+.saturn-planet::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 25px;
+    top: 76px;
+
+    width: 90px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,230,185,0.25);
+
+    transform:
+        rotate(-10deg);
+}
+
+.saturn-ring-front {
+
+    position: absolute;
+
+    z-index: 4;
+
+    width: 310px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    border:
+        11px solid
+        rgba(231,201,158,0.72);
+
+    transform:
+        rotate(-13deg)
+        skewX(-10deg);
+
+    clip-path:
+        polygon(
+            0 48%,
+            100% 48%,
+            100% 100%,
+            0 100%
+        );
+
+    animation:
+        saturnFloat 4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes saturnFloat {
+
+    0%,
+    100% {
+        transform:
+            rotate(-13deg)
+            skewX(-10deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(-13deg)
+            skewX(-10deg)
+            translateY(-5px);
+    }
+}
+
+@keyframes planetFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =====================================================
+   TEXTO REGALO
+===================================================== */
+
+.gift-title {
+
+    position: relative;
+
+    z-index: 5;
+
+    margin:
+        -5px 0 5px;
+
+    color: #fff;
+
+    font-size:
+        clamp(27px, 4vw, 40px);
+
+    text-shadow:
+        0 0 15px
+        rgba(255,255,255,0.15);
+}
+
+.gift-subtitle {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 600px;
+
+    margin:
+        8px auto 30px;
+
+    color: #c9c5df;
+
+    line-height: 1.7;
+
+    font-size:
+        clamp(14px, 2vw, 17px);
+}
+
+
+/* =====================================================
+   CARRITOS
+===================================================== */
+
+.car-collection {
+
+    position: relative;
+
+    z-index: 10;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin:
+        0 auto;
+}
+
+.car-card {
+
+    position: relative;
+
+    min-height: 330px;
+
+    padding:
+        18px 15px 17px;
+
+    border-radius: 24px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.025)
+        );
+
+    backdrop-filter:
+        blur(10px);
+
+    cursor: pointer;
+
+    color: white;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    font-family: inherit;
+
+    appearance: none;
+}
+
+.car-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+
+    left: 50%;
+
+    width: 220px;
+    height: 220px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    filter:
+        blur(28px);
+
+    pointer-events: none;
+}
+
+.car-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+    left: -80%;
+
+    width: 60%;
+    height: 300%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.08),
+            transparent
+        );
+
+    transform:
+        rotate(20deg);
+
+    transition:
+        left .8s ease;
+
+    pointer-events: none;
+}
+
+.car-card:hover::after {
+    left: 140%;
+}
+
+.car-card:hover {
+
+    transform:
+        translateY(-9px)
+        scale(1.02);
+
+    border-color:
+        rgba(255,255,255,0.32);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,0.4);
+}
+
+.car-card:active {
+    transform: scale(0.97);
+}
+
+.car-card-number {
+
+    position: absolute;
+
+    top: 12px;
+    left: 13px;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        rgba(255,255,255,0.11);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    color: #fff;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   IMAGEN HOT WHEELS
+===================================================== */
+
+.image-container {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 195px;
+
+    margin:
+        2px auto 4px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: visible;
+}
+
+.image-container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 155px;
+    height: 95px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    filter:
+        blur(30px);
+
+    opacity: .85;
+
+    z-index: 0;
+
+    animation:
+        carLight 2.8s
+        ease-in-out
+        infinite alternate;
+}
+
+.car-card.blue
+.image-container::before {
+
+    background:
+        rgba(0,150,255,.38);
+
+    box-shadow:
+        0 0 70px
+        rgba(0,150,255,.28);
+}
+
+.car-card.pink
+.image-container::before {
+
+    background:
+        rgba(255,55,150,.38);
+
+    box-shadow:
+        0 0 70px
+        rgba(255,55,150,.28);
+}
+
+.car-card.purple
+.image-container::before {
+
+    background:
+        rgba(145,75,255,.42);
+
+    box-shadow:
+        0 0 70px
+        rgba(145,75,255,.30);
+}
+
+@keyframes carLight {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            scale(.85);
+
+        opacity: .55;
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.18);
+
+        opacity: 1;
+    }
+}
+
+.hotwheel-image {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    height: 190px;
+
+    object-fit: contain;
+
+    display: block;
+
+    background: transparent;
+
+    border-radius: 18px;
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+
+    filter:
+
+        drop-shadow(
+            0 0 4px
+            rgba(255,255,255,.75)
+        )
+
+        drop-shadow(
+            0 0 10px
+            rgba(70,160,255,.42)
+        )
+
+        drop-shadow(
+            0 14px 18px
+            rgba(0,0,0,.48)
+        );
+}
+
+.car-card:hover
+.hotwheel-image {
+
+    transform:
+        scale(1.08)
+        translateY(-5px);
+
+    filter:
+
+        drop-shadow(
+            0 0 5px
+            rgba(255,255,255,.95)
+        )
+
+        drop-shadow(
+            0 0 13px
+            rgba(80,175,255,.85)
+        )
+
+        drop-shadow(
+            0 0 25px
+            rgba(80,150,255,.35)
+        )
+
+        drop-shadow(
+            0 16px 20px
+            rgba(0,0,0,.55)
+        );
+}
+
+
+/* =====================================================
+   TEXTO TARJETAS
+===================================================== */
+
+.car-card h3 {
+
+    position: relative;
+
+    z-index: 3;
+
+    margin:
+        3px 0 5px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.car-card p {
+
+    position: relative;
+
+    z-index: 3;
+
+    margin: 0;
+
+    color: #aaa7be;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+.tap-hint {
+
+    display: inline-block;
+
+    margin-top: 9px;
+
+    color: #ff9fba;
+
+    font-size: 12px;
+
+    opacity: .9;
+
+    transition:
+        transform .25s ease;
+}
+
+.car-card:hover
+.tap-hint {
+
+    transform:
+        scale(1.08);
+}
+
+.car-card.blue {
+
+    box-shadow:
+        inset 0 0 40px
+        rgba(0,130,255,0.07);
+}
+
+.car-card.pink {
+
+    box-shadow:
+        inset 0 0 40px
+        rgba(255,50,130,0.07);
+}
+
+.car-card.purple {
+
+    box-shadow:
+        inset 0 0 40px
+        rgba(140,70,255,0.08);
+}
+
+
+/* =====================================================
+   MODAL GENERAL
+===================================================== */
+
+.special-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,0.82);
+
+    backdrop-filter:
+        blur(10px);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.special-modal.show {
+
+    display: flex;
+
+    animation:
+        modalFade .35s ease;
+}
+
+@keyframes modalFade {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   MODAL NORMAL
+===================================================== */
+
+.modal-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding:
+        35px 25px 30px;
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #171421,
+            #0c0c13
+        );
+
+    border:
+        1px solid
+        rgba(255,120,160,0.25);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,0.6);
+
+    animation:
+        modalPop .45s ease;
+}
+
+@keyframes modalPop {
+
+    from {
+
+        transform:
+            scale(.85)
+            translateY(20px);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform:
+            scale(1)
+            translateY(0);
+
+        opacity: 1;
+    }
+}
+
+.close-modal {
+
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        .2s;
+
+    z-index: 20;
+}
+
+.close-modal:hover {
+
+    background:
+        rgba(255,70,110,0.25);
+
+    transform:
+        rotate(90deg);
+}
+
+.modal-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+.modal-content h2 {
+
+    margin:
+        5px 0 12px;
+
+    color: #ff91aa;
+
+    font-size: 28px;
+}
+
+.modal-content p {
+
+    color: #ddd8e1;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    margin: 0;
+}
+
+.modal-heart {
+
+    margin-top: 20px;
+
+    color: #ff315b;
+
+    font-size: 25px;
+
+    animation:
+        titleHeart 1.3s infinite;
+}
+
+
+/* =====================================================
+   CARTA ROMANTICA
+===================================================== */
+
+.letter-modal .modal-content {
+
+    max-width: 720px;
+
+    max-height: 92vh;
+
+    padding:
+        0 0 28px;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff8f5,
+            #fff0f3
+        );
+
+    border:
+        1px solid
+        rgba(255,130,160,.45);
+
+    box-shadow:
+
+        0 30px 100px
+        rgba(0,0,0,.75),
+
+        0 0 45px
+        rgba(255,70,120,.18);
+
+    color: #432631;
+}
+
+
+/* parte superior */
+
+.letter-top {
+
+    position: relative;
+
+    padding:
+        28px 30px 22px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff6f91,
+            #ff9fb4
+        );
+
+    color: white;
+
+    overflow: hidden;
+}
+
+.letter-top::before {
+
+    content: "♥";
+
+    position: absolute;
+
+    font-size: 150px;
+
+    right: -20px;
+
+    top: -65px;
+
+    color:
+        rgba(255,255,255,.10);
+
+    transform:
+        rotate(15deg);
+}
+
+.letter-top::after {
+
+    content: "♥";
+
+    position: absolute;
+
+    font-size: 75px;
+
+    left: -15px;
+
+    bottom: -35px;
+
+    color:
+        rgba(255,255,255,.10);
+
+    transform:
+        rotate(-20deg);
+}
+
+.letter-small {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: .9;
+
+    margin-bottom: 7px;
+}
+
+.letter-top h2 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0;
+
+    color: white;
+
+    font-size:
+        clamp(25px, 5vw, 38px);
+
+    text-shadow:
+        0 2px 10px
+        rgba(120,20,50,.18);
+}
+
+.letter-date {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 7px;
+
+    font-size: 13px;
+
+    opacity: .92;
+}
+
+
+/* contenido */
+
+.letter-body {
+
+    padding:
+        27px 30px 5px;
+
+    text-align: left;
+}
+
+.letter-greeting {
+
+    margin: 0 0 18px;
+
+    color: #d74770;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+.letter-body p {
+
+    margin:
+        0 0 15px;
+
+    color: #5e4650;
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+.letter-body .signature {
+
+    margin-top: 22px;
+
+    color: #c93e67;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+/* =====================================================
+   3 FOTOS DE LA CARTA
+===================================================== */
+
+.letter-photos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 13px;
+
+    padding:
+        18px 30px 5px;
+}
+
+.letter-photo {
+
+    position: relative;
+
+    height: 175px;
+
+    padding: 7px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(70,30,40,.18);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.letter-photo:nth-child(1) {
+    transform: rotate(-3deg);
+}
+
+.letter-photo:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.letter-photo:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.letter-photo:hover {
+
+    transform:
+        translateY(-7px)
+        rotate(0deg)
+        scale(1.03);
+
+    box-shadow:
+        0 14px 28px
+        rgba(70,30,40,.25);
+
+    z-index: 3;
+}
+
+.letter-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    padding: 5px;
+    background: #ffffff;
+
+    display: block;
+
+    border-radius: 2px;
+}
+
+.photo-caption {
+
+    position: absolute;
+
+    bottom: -22px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 100%;
+
+    color: #a65a6f;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   DETALLE FINAL DE CARTA
+===================================================== */
+
+.letter-footer {
+
+    padding:
+        23px 30px 0;
+
+    text-align: center;
+}
+
+.letter-footer-line {
+
+    height: 1px;
+
+    width: 85%;
+
+    margin:
+        0 auto 17px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ef9bae,
+            transparent
+        );
+}
+
+.letter-footer-heart {
+
+    color: #e94b72;
+
+    font-size: 27px;
+
+    animation:
+        letterHeart 1.4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes letterHeart {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+.letter-footer-text {
+
+    margin-top: 5px;
+
+    color: #9c6675;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   DECORACION
+===================================================== */
+
+.gift-decoration {
+
+    position: relative;
+
+    z-index: 5;
+
+    margin-top: 30px;
+
+    color: #a9a4c5;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .car-collection {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        max-width: 650px;
+    }
+
+    .car-card {
+        min-height: 315px;
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        align-items: flex-start;
+    }
+
+    .container {
+
+        width: 100%;
+
+        padding:
+            18px 8px 25px;
+    }
+
+    .race-title h1 {
+        font-size: 27px;
+    }
+
+    .race-title p {
+        font-size: 13px;
+    }
+
+    .race-wrapper {
+        border-radius: 20px;
+    }
+
+    .heart-button {
+
+        width: 90px;
+        height: 90px;
+    }
+
+    .keypad {
+        width: 245px;
+    }
+
+    .password-screen {
+        padding:
+            28px 18px;
+    }
+
+    .gift-screen {
+
+        min-height: 700px;
+
+        padding:
+            30px 12px 35px;
+
+        border-radius: 25px;
+    }
+
+    .saturn-container {
+
+        width: 260px;
+        height: 210px;
+    }
+
+    .saturn-ring-back,
+    .saturn-ring-front {
+
+        width: 260px;
+        height: 78px;
+    }
+
+    .saturn-planet {
+
+        width: 120px;
+        height: 120px;
+    }
+
+    .saturn-planet::before {
+
+        width: 95px;
+        left: 13px;
+    }
+
+    .saturn-planet::after {
+
+        width: 75px;
+        left: 22px;
+    }
+
+    .car-collection {
+
+        grid-template-columns: 1fr;
+
+        max-width: 350px;
+
+        gap: 16px;
+    }
+
+    .car-card {
+
+        min-height: 300px;
+
+        padding:
+            16px 14px 18px;
+    }
+
+    .image-container {
+        height: 180px;
+    }
+
+    .hotwheel-image {
+        height: 175px;
+    }
+
+    .car-card h3 {
+        font-size: 18px;
+    }
+
+    .car-card p {
+        font-size: 13px;
+    }
+
+    .modal-content {
+
+        max-width: 95%;
+
+        padding:
+            32px 20px 25px;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .modal-content p {
+        font-size: 14px;
+    }
+
+
+    /* CARTA EN CELULAR */
+
+    .letter-modal {
+
+        padding:
+            10px;
+    }
+
+    .letter-modal .modal-content {
+
+        max-height: 94vh;
+
+        border-radius: 22px;
+    }
+
+    .letter-top {
+
+        padding:
+            24px 21px 20px;
+    }
+
+    .letter-body {
+
+        padding:
+            23px 21px 5px;
+    }
+
+    .letter-body p {
+
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+    .letter-photos {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding:
+            10px 40px 5px;
+    }
+
+    .letter-photo {
+
+        height: 190px;
+    }
+
+    .letter-photo:nth-child(1),
+    .letter-photo:nth-child(2),
+    .letter-photo:nth-child(3) {
+
+        transform:
+            rotate(0deg);
+    }
+
+    .letter-footer {
+
+        padding:
+            23px 20px 0;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUEÑOS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .password-screen h2 {
+        font-size: 25px;
+    }
+
+    .keypad {
+        width: 225px;
+    }
+
+    .key {
+        height: 54px;
+    }
+
+    .gift-screen {
+
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .car-collection {
+        max-width: 310px;
+    }
+
+    .image-container {
+        height: 165px;
+    }
+
+    .hotwheel-image {
+        height: 160px;
+    }
+
+    .letter-photos {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+
+/* =====================================================
+   RAMITO DE FLORES - SEGUNDO HOT WHEELS
+===================================================== */
+
+.flower-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    overflow: auto;
+    background:
+        radial-gradient(circle at 50% 15%, rgba(48,122,255,.20), transparent 28%),
+        radial-gradient(circle at 20% 70%, rgba(34,90,180,.14), transparent 24%),
+        radial-gradient(circle at 80% 35%, rgba(76,154,255,.12), transparent 22%),
+        linear-gradient(180deg, #02040b 0%, #050b18 52%, #02040b 100%);
+    color: #eaf4ff;
+}
+
+.flower-screen.show {
+    display: block;
+    animation: bouquetAppear .8s ease;
+}
+
+@keyframes bouquetAppear {
+    from { opacity: 0; transform: scale(.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.flower-inner {
+    width: min(1050px, 94%);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 45px 20px 55px;
+    text-align: center;
+    position: relative;
+}
+
+.flower-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(180,80,110,.18);
+    border-radius: 50%;
+    background: rgba(8,18,35,.88);
+    color: #9ed8ff;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(120,50,75,.12);
+    transition: .25s ease;
+    z-index: 30;
+}
+
+.flower-close:hover {
+    transform: rotate(90deg) scale(1.06);
+    background: #102b4a;
+}
+
+.flower-kicker {
+    margin: 5px 0 7px;
+    color: #67c7ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.flower-title {
+    margin: 0;
+    color: #e9f7ff;
+    text-shadow: 0 0 18px rgba(80,180,255,.28);
+    font-size: clamp(30px, 5vw, 48px);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.flower-subtitle {
+    max-width: 650px;
+    margin: 12px auto 28px;
+    color: #b9d5eb;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.bouquet-area {
+    position: relative;
+    width: min(850px, 100%);
+    height: 610px;
+    margin: 0 auto;
+}
+
+.bouquet-stem {
+    position: absolute;
+    left: 50%;
+    bottom: 102px;
+    width: 7px;
+    height: 285px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #39724c, #79a66e, #39724c);
+    transform-origin: bottom center;
+    box-shadow: 0 2px 5px rgba(30,80,45,.18);
+}
+
+.stem1 { transform: rotate(-25deg); height: 280px; }
+.stem2 { transform: rotate(-13deg); height: 305px; }
+.stem3 { transform: rotate(0deg); height: 325px; }
+.stem4 { transform: rotate(13deg); height: 305px; }
+.stem5 { transform: rotate(25deg); height: 280px; }
+
+.leaf {
+    position: absolute;
+    width: 62px;
+    height: 30px;
+    border-radius: 100% 0 100% 0;
+    background: linear-gradient(135deg, #79ad72, #3e754e);
+    box-shadow: inset 4px 3px 7px rgba(255,255,255,.2);
+    z-index: 3;
+}
+
+.leaf::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 14px;
+    height: 2px;
+    background: rgba(255,255,255,.35);
+    transform: rotate(-18deg);
+}
+
+.leaf1 { left: 25%; bottom: 155px; transform: rotate(-28deg); }
+.leaf2 { left: 31%; bottom: 205px; transform: rotate(25deg) scale(.9); }
+.leaf3 { right: 25%; bottom: 160px; transform: scaleX(-1) rotate(-22deg); }
+.leaf4 { right: 30%; bottom: 225px; transform: scaleX(-1) rotate(25deg) scale(.88); }
+
+.flower {
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    z-index: 10;
+    filter: drop-shadow(0 10px 13px rgba(100,40,60,.14));
+}
+
+.flower.f1 { left: 7%; top: 80px; transform: rotate(-8deg); }
+.flower.f2 { left: 25%; top: 28px; transform: rotate(5deg); }
+.flower.f3 { left: 50%; top: 0; transform: translateX(-50%); }
+.flower.f4 { right: 25%; top: 30px; transform: rotate(-5deg); }
+.flower.f5 { right: 7%; top: 82px; transform: rotate(8deg); }
+
+.petal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 65px;
+    height: 92px;
+    border-radius: 55% 55% 48% 48%;
+    transform-origin: 50% 100%;
+    margin-left: -32.5px;
+    margin-top: -92px;
+    box-shadow: inset 5px 4px 10px rgba(255,255,255,.38), 0 3px 8px rgba(100,40,60,.08);
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(45deg); }
+.petal:nth-child(3) { transform: rotate(90deg); }
+.petal:nth-child(4) { transform: rotate(135deg); }
+.petal:nth-child(5) { transform: rotate(180deg); }
+.petal:nth-child(6) { transform: rotate(225deg); }
+.petal:nth-child(7) { transform: rotate(270deg); }
+.petal:nth-child(8) { transform: rotate(315deg); }
+
+.flower.pink .petal { background: linear-gradient(145deg, #aee8ff, #4bb7e8); }
+.flower.rose .petal { background: linear-gradient(145deg, #b9dcff, #4f8fd9); }
+.flower.peach .petal { background: linear-gradient(145deg, #d5f5ff, #73cde8); }
+.flower.lilac .petal { background: linear-gradient(145deg, #c8e9ff, #639fd8); }
+.flower.red .petal { background: linear-gradient(145deg, #9edcff, #3479c6); }
+
+.flower-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 122px;
+    height: 122px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid #d8f2ff;
+    box-shadow: 0 6px 22px rgba(0,0,0,.42), 0 0 0 3px rgba(100,200,255,.25);
+    background: #ffffff;
+    z-index: 5;
+}
+
+.flower-center img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.flower-center span {
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    color: #875363;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.flower-note {
+    position: absolute;
+    left: 50%;
+    bottom: -62px;
+    transform: translateX(-50%);
+    width: min(520px, 88%);
+    padding: 18px 24px;
+    border-radius: 22px;
+    background: rgba(5,15,30,.94);
+    border: 1px solid rgba(100,190,255,.28);
+    box-shadow: 0 15px 35px rgba(0,0,0,.35), 0 0 25px rgba(50,150,255,.10);
+    color: #d5e9f7;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.flower-note strong {
+    color: #6ed0ff;
+}
+
+.bouquet-ribbon {
+    position: absolute;
+    left: 50%;
+    bottom: 52px;
+    width: 220px;
+    height: 120px;
+    transform: translateX(-50%);
+    z-index: 20;
+    pointer-events: none;
+}
+
+.bouquet-ribbon::before,
+.bouquet-ribbon::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 105px;
+    background: linear-gradient(145deg, #8edcff, #1464b5);
+    box-shadow: inset 5px 0 8px rgba(255,255,255,.22);
+}
+
+.bouquet-ribbon::before {
+    left: 13px;
+    clip-path: polygon(0 0, 100% 12%, 82% 100%, 20% 78%);
+    transform: rotate(8deg);
+}
+
+.bouquet-ribbon::after {
+    right: 13px;
+    clip-path: polygon(0 12%, 100% 0, 80% 78%, 18% 100%);
+    transform: rotate(-8deg);
+}
+
+.ribbon-knot {
+    position: absolute;
+    left: 50%;
+    top: 17px;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 52px;
+    border-radius: 45%;
+    background: linear-gradient(145deg, #b9ebff, #1769b9);
+    box-shadow: 0 7px 15px rgba(100,35,55,.2);
+    z-index: 3;
+}
+
+.ribbon-knot::after {
+    content: "♥";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: rgba(255,255,255,.75);
+    font-size: 21px;
+}
+
+.flower-back {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 15% 25%, rgba(90,180,255,.14), transparent 14%),
+        radial-gradient(circle at 85% 30%, rgba(70,130,255,.12), transparent 14%),
+        radial-gradient(circle at 50% 80%, rgba(30,100,190,.12), transparent 18%),
+        radial-gradient(circle at 10% 10%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 38%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 78% 18%, #d9f4ff 0 1px, transparent 2px),
+        radial-gradient(circle at 92% 62%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 60% 12%, #d9f4ff 0 1px, transparent 2px),
+        radial-gradient(circle at 42% 76%, #fff 0 1px, transparent 2px);
+}
+
+@media (max-width: 850px) {
+    .bouquet-area { height: 700px; }
+    .flower { width: 155px; height: 155px; }
+    .petal { width: 54px; height: 78px; margin-left: -27px; margin-top: -78px; }
+    .flower-center { width: 76px; height: 76px; border-width: 5px; }
+    .flower.f1 { left: 2%; top: 125px; }
+    .flower.f2 { left: 20%; top: 60px; }
+    .flower.f3 { top: 22px; }
+    .flower.f4 { right: 20%; top: 62px; }
+    .flower.f5 { right: 2%; top: 128px; }
+}
+
+@media (max-width: 600px) {
+    .flower-inner { padding: 35px 10px 35px; }
+    .flower-close { top: 12px; right: 12px; }
+    .flower-title { font-size: 31px; padding: 0 40px; }
+    .flower-subtitle { font-size: 13px; padding: 0 15px; }
+    .bouquet-area { height: 750px; margin-top: 5px; }
+    .flower { width: 125px; height: 125px; }
+    .petal { width: 43px; height: 62px; margin-left: -21.5px; margin-top: -62px; }
+    .flower-center { width: 64px; height: 64px; border-width: 4px; }
+    .flower.f1 { left: 0; top: 155px; }
+    .flower.f2 { left: 17%; top: 72px; }
+    .flower.f3 { top: 20px; }
+    .flower.f4 { right: 17%; top: 72px; }
+    .flower.f5 { right: 0; top: 155px; }
+    .leaf1 { left: 16%; bottom: 210px; }
+    .leaf2 { left: 26%; bottom: 275px; }
+    .leaf3 { right: 16%; bottom: 210px; }
+    .leaf4 { right: 25%; bottom: 280px; }
+    .bouquet-ribbon { bottom: 82px; transform: translateX(-50%) scale(.82); }
+    .bouquet-stem { bottom: 132px; }
+    .flower-note { bottom: -65px; font-size: 14px; padding: 14px 17px; }
+}
+
+
+/* ===== RAMITO AZUL / ESPACIAL ===== */
+
+.flower-back {
+    z-index: 0;
+    opacity: .95;
+}
+
+.flower-inner {
+    z-index: 2;
+}
+
+.flower {
+    animation: flowerFloat 4.5s ease-in-out infinite;
+}
+
+.flower.f2 {
+    animation-delay: -.8s;
+}
+
+.flower.f3 {
+    animation-delay: -1.5s;
+}
+
+.flower.f4 {
+    animation-delay: -2.2s;
+}
+
+.flower.f5 {
+    animation-delay: -3s;
+}
+
+@keyframes flowerFloat {
+
+    0%,100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -7px;
+    }
+}
+
+.flower.blue .petal {
+    background:
+        linear-gradient(
+            145deg,
+            #bfeaff,
+            #378ed0,
+            #1262a8
+        );
+}
+
+.flower.sky .petal {
+    background:
+        linear-gradient(
+            145deg,
+            #d9f6ff,
+            #66c9f5,
+            #2389c8
+        );
+}
+
+.flower.royal .petal {
+    background:
+        linear-gradient(
+            145deg,
+            #a9dcff,
+            #347fd2,
+            #174f9b
+        );
+}
+
+.flower.cyan .petal {
+    background:
+        linear-gradient(
+            145deg,
+            #d9fbff,
+            #55d0e8,
+            #1985b5
+        );
+}
+
+.flower.navy .petal {
+    background:
+        linear-gradient(
+            145deg,
+            #9edbff,
+            #246bb4,
+            #123e78
+        );
+}
+
+.flower-center img {
+    object-fit: contain !important;
+}
+
+.flower-note {
+    bottom: -92px;
+}
+
+.flower-note strong {
+    color: #63caff;
+}
+
+@media (max-width:850px) {
+
+    .flower {
+        width: 175px;
+        height: 175px;
+    }
+
+    .flower-center {
+        width: 102px;
+        height: 102px;
+    }
+
+    .flower-note {
+        bottom: -82px;
+    }
+}
+
+@media (max-width:600px) {
+
+    .flower {
+        width: 135px;
+        height: 135px;
+    }
+
+    .flower-center {
+        width: 82px;
+        height: 82px;
+    }
+
+    .flower-note {
+        bottom: -82px;
+    }
+}
+
+
+/* =====================================================
+   VIDEO - TERCER HOT WHEELS
+===================================================== */
+
+.video-screen {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3000;
+
+    overflow-y: auto;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(110,75,255,.22),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(0,150,255,.12),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(255,60,140,.10),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            180deg,
+            #02030a,
+            #080716 55%,
+            #02030a
+        );
+
+    color: white;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .4s ease;
+}
+
+.video-screen.show {
+
+    display: block;
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    animation:
+        videoScreenAppear .6s ease;
+}
+
+@keyframes videoScreenAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.video-screen::before,
+.video-screen::after {
+
+    content: "✦";
+
+    position: fixed;
+
+    color: rgba(255,255,255,.7);
+
+    font-size: 20px;
+
+    text-shadow:
+        0 0 12px
+        rgba(120,170,255,.9);
+
+    animation:
+        videoStar 2.5s
+        ease-in-out
+        infinite;
+}
+
+.video-screen::before {
+
+    top: 18%;
+
+    left: 10%;
+}
+
+.video-screen::after {
+
+    right: 11%;
+
+    top: 28%;
+
+    animation-delay: 1s;
+}
+
+@keyframes videoStar {
+
+    0%,
+    100% {
+        opacity: .25;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.video-inner {
+
+    width: min(1000px, 94%);
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding:
+        55px 20px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.video-close {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 25px;
+
+    width: 46px;
+
+    height: 46px;
+
+    border: 1px solid
+        rgba(255,255,255,.18);
+
+    border-radius: 50%;
+
+    background:
+        rgba(10,12,25,.85);
+
+    color: white;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.video-close:hover {
+
+    transform:
+        rotate(90deg)
+        scale(1.08);
+
+    background:
+        rgba(255,60,110,.2);
+
+    box-shadow:
+        0 0 25px
+        rgba(255,60,110,.25);
+}
+
+.video-kicker {
+
+    margin-bottom: 8px;
+
+    color: #9b83ff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.video-title {
+
+    margin:
+        0 0 10px;
+
+    font-size:
+        clamp(28px, 5vw, 46px);
+
+    color: white;
+
+    text-shadow:
+        0 0 18px
+        rgba(150,120,255,.28);
+}
+
+.video-subtitle {
+
+    max-width: 650px;
+
+    margin:
+        0 auto 28px;
+
+    color: #c5c1d7;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.youtube-container {
+
+    position: relative;
+
+    width: min(850px, 100%);
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background: #000;
+
+    border:
+        1px solid
+        rgba(150,120,255,.28);
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(0,0,0,.65),
+
+        0 0 50px
+        rgba(100,80,255,.15);
+}
+
+.youtube-container iframe {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+    display: block;
+}
+
+.video-message {
+
+    max-width: 650px;
+
+    margin:
+        25px auto 0;
+
+    color: #d7d2e6;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.video-heart {
+
+    margin-top: 15px;
+
+    color: #ff4f78;
+
+    font-size: 28px;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,60,100,.55)
+        );
+
+    animation:
+        titleHeart 1.5s
+        ease-in-out
+        infinite;
+}
+
+@media (max-width: 700px) {
+
+    .video-inner {
+
+        width: 94%;
+
+        padding:
+            70px 8px 35px;
+    }
+
+    .video-close {
+
+        top: 12px;
+
+        right: 12px;
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 24px;
+    }
+
+    .video-title {
+
+        font-size: 29px;
+
+        padding:
+            0 20px;
+    }
+
+    .video-subtitle {
+
+        font-size: 13px;
+
+        padding:
+            0 12px;
+    }
+
+    .youtube-container {
+
+        border-radius: 16px;
+    }
+
+    .video-message {
+
+        font-size: 14px;
+
+        padding:
+            0 15px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =================================================
+     TITULO
+================================================= -->
+
+<div class="race-title">
+
+    <div class="title-heart">
+        ♥
+    </div>
+
+    <h1>
+        Nuestro pequeño viaje de amor
+    </h1>
+
+    <p>
+        Una ruta que solo tú y yo conocemos... 🏎️❤️
+    </p>
+
+</div>
+
+
+<!-- =================================================
+     CARRERA
+================================================= -->
+
+<div
+    class="race-wrapper"
+    id="raceArea"
+>
+
+<svg
+    id="raceSvg"
+    viewBox="0 0 900 500"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+<rect
+    width="900"
+    height="500"
+    fill="#0b0b0f"
+/>
+
+
+<!-- LUCES -->
+
+<circle class="light" cx="65" cy="60" r="5"/>
+<circle class="light" cx="165" cy="105" r="4"/>
+<circle class="light white" cx="285" cy="48" r="4"/>
+<circle class="light" cx="760" cy="55" r="5"/>
+<circle class="light white" cx="835" cy="105" r="4"/>
+<circle class="light" cx="680" cy="45" r="4"/>
+<circle class="light white" cx="105" cy="210" r="3"/>
+<circle class="light" cx="805" cy="220" r="3"/>
+
+
+<!-- CARRETERA -->
+
+<path
+    id="roadBorder"
+    d="
+        M -80 400
+        C 20 400, 150 425, 285 405
+        C 305 402, 320 395, 335 385
+        C 315 365, 285 340, 255 310
+        C 205 260, 180 205, 195 155
+        C 210 100, 260 65, 315 65
+        C 375 65, 420 100, 450 155
+        C 480 100, 525 65, 585 65
+        C 640 65, 690 100, 705 155
+        C 720 205, 695 260, 645 310
+        C 615 340, 585 365, 565 385
+        C 580 395, 595 402, 615 405
+        C 750 425, 880 400, 980 400
+    "
+    fill="none"
+    stroke="#050505"
+    stroke-width="112"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+/>
+
+<path
+    id="road"
+    d="
+        M -80 400
+        C 20 400, 150 425, 285 405
+        C 305 402, 320 395, 335 385
+        C 315 365, 285 340, 255 310
+        C 205 260, 180 205, 195 155
+        C 210 100, 260 65, 315 65
+        C 375 65, 420 100, 450 155
+        C 480 100, 525 65, 585 65
+        C 640 65, 690 100, 705 155
+        C 720 205, 695 260, 645 310
+        C 615 340, 585 365, 565 385
+        C 580 395, 595 402, 615 405
+        C 750 425, 880 400, 980 400
+    "
+    fill="none"
+    stroke="#38383d"
+    stroke-width="94"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+/>
+
+<path
+    d="
+        M -80 400
+        C 20 400, 150 425, 285 405
+        C 305 402, 320 395, 335 385
+        C 315 365, 285 340, 255 310
+        C 205 260, 180 205, 195 155
+        C 210 100, 260 65, 315 65
+        C 375 65, 420 100, 450 155
+        C 480 100, 525 65, 585 65
+        C 640 65, 690 100, 705 155
+        C 720 205, 695 260, 645 310
+        C 615 340, 585 365, 565 385
+        C 580 395, 595 402, 615 405
+        C 750 425, 880 400, 980 400
+    "
+    fill="none"
+    stroke="#f1d6a4"
+    stroke-width="3"
+    stroke-dasharray="18 16"
+    stroke-linecap="round"
+/>
+
+<text
+    x="450"
+    y="255"
+    text-anchor="middle"
+    fill="#ff315b"
+    font-size="25"
+    opacity="0.9"
+>
+    ♥
+</text>
+
+
+<!-- META -->
+
+<g>
+
+<line
+    x1="750"
+    y1="350"
+    x2="750"
+    y2="440"
+    stroke="#eeeeee"
+    stroke-width="5"
+/>
+
+<rect
+    x="750"
+    y="350"
+    width="60"
+    height="35"
+    fill="white"
+/>
+
+<rect x="750" y="350" width="15" height="9" fill="#111"/>
+<rect x="780" y="350" width="15" height="9" fill="#111"/>
+<rect x="765" y="359" width="15" height="9" fill="#111"/>
+<rect x="795" y="359" width="15" height="9" fill="#111"/>
+<rect x="750" y="368" width="15" height="9" fill="#111"/>
+<rect x="780" y="368" width="15" height="9" fill="#111"/>
+
+<text
+    x="780"
+    y="335"
+    text-anchor="middle"
+    fill="#ff7995"
+    font-size="15"
+    font-weight="bold"
+>
+    META ❤️
+</text>
+
+</g>
+
+
+<!-- HOT WHEELS AZUL -->
+
+<g id="car">
+
+    <ellipse
+        cx="0"
+        cy="18"
+        rx="61"
+        ry="11"
+        fill="#000000"
+        opacity="0.65"
+    />
+
+    <circle
+        cx="-38"
+        cy="12"
+        r="15"
+        fill="#08090c"
+        stroke="#30343c"
+        stroke-width="2"
+    />
+
+    <circle
+        cx="-38"
+        cy="12"
+        r="9"
+        fill="#111318"
+        stroke="#777d88"
+        stroke-width="1.5"
+    />
+
+    <circle cx="-38" cy="12" r="5" fill="#d4a62a"/>
+    <circle cx="-38" cy="12" r="2" fill="#20242b"/>
+
+    <circle
+        cx="39"
+        cy="12"
+        r="15"
+        fill="#08090c"
+        stroke="#30343c"
+        stroke-width="2"
+    />
+
+    <circle
+        cx="39"
+        cy="12"
+        r="9"
+        fill="#111318"
+        stroke="#777d88"
+        stroke-width="1.5"
+    />
+
+    <circle cx="39" cy="12" r="5" fill="#d4a62a"/>
+    <circle cx="39" cy="12" r="2" fill="#20242b"/>
+
+    <path
+        d="
+            M -59 8
+            L -55 1
+            L -47 -5
+            Q -39 -13 -27 -17
+            L 20 -18
+            Q 35 -16 46 -8
+            L 56 0
+            Q 61 5 59 10
+            L 54 15
+            L -54 15
+            Q -60 13 -59 8
+            Z
+        "
+        fill="#0877d1"
+        stroke="#54b9ff"
+        stroke-width="1.8"
+        stroke-linejoin="round"
+    />
+
+    <path
+        d="
+            M -50 0
+            Q -20 -12 18 -12
+            Q 38 -10 49 -2
+            L 44 1
+            Q 8 -5 -45 5
+            Z
+        "
+        fill="#69c9ff"
+        opacity="0.42"
+    />
+
+    <path
+        d="
+            M -55 7
+            Q 0 14 55 7
+            L 53 14
+            L -53 14
+            Z
+        "
+        fill="#061827"
+    />
+
+    <path
+        d="
+            M 3 -18
+            L 25 -16
+            Q 39 -13 48 -5
+            L 54 1
+            L 10 1
+            Z
+        "
+        fill="#090c12"
+    />
+
+    <path
+        d="
+            M 1 -18
+            L 8 -18
+            L 19 1
+            L 11 1
+            Z
+        "
+        fill="#e52246"
+    />
+
+    <path
+        d="
+            M 14 -17
+            L 19 -16
+            L 31 1
+            L 24 1
+            Z
+        "
+        fill="#a70d2d"
+    />
+
+    <path
+        d="
+            M -25 -17
+            L -14 -31
+            Q -11 -34 -5 -34
+            L 17 -34
+            Q 23 -33 28 -28
+            L 36 -17
+            Z
+        "
+        fill="#10141c"
+        stroke="#5f6d7e"
+        stroke-width="1.3"
+    />
+
+    <path
+        d="
+            M -10 -29
+            L -5 -18
+            L 7 -18
+            L 5 -29
+            Z
+        "
+        fill="#263a4d"
+        stroke="#8ed8ff"
+    />
+
+    <path
+        d="
+            M 9 -29
+            L 25 -27
+            L 32 -18
+            L 11 -18
+            Z
+        "
+        fill="#182a3a"
+        stroke="#8ed8ff"
+    />
+
+    <rect
+        x="-52"
+        y="-22"
+        width="22"
+        height="4"
+        rx="2"
+        fill="#07090c"
+    />
+
+    <rect
+        x="-48"
+        y="-27"
+        width="4"
+        height="7"
+        fill="#07090c"
+    />
+
+    <rect
+        x="-36"
+        y="-27"
+        width="4"
+        height="7"
+        fill="#07090c"
+    />
+
+    <path
+        d="
+            M 44 -2
+            L 53 0
+            L 49 3
+            L 42 2
+            Z
+        "
+        fill="white"
+        filter="
+            drop-shadow(
+                0 0 5px
+                white
+            )
+        "
+    />
+
+    <path
+        d="
+            M 51 3
+            L 57 4
+            L 55 8
+            L 50 8
+            Z
+        "
+        fill="white"
+        filter="
+            drop-shadow(
+                0 0 5px
+                white
+            )
+        "
+    />
+
+    <path
+        d="
+            M -42 7
+            L -10 7
+            L -4 11
+            L -43 11
+            Z
+        "
+        fill="#e52346"
+    />
+
+    <circle
+        cx="27"
+        cy="-7"
+        r="7"
+        fill="#d8a82c"
+        stroke="#fff0a1"
+        stroke-width="1"
+    />
+
+    <text
+        x="27"
+        y="-4"
+        text-anchor="middle"
+        font-size="5.5"
+        font-weight="900"
+        fill="#141414"
+    >
+        TH
+    </text>
+
+    <circle
+        cx="-2"
+        cy="3"
+        r="9"
+        fill="#f7f7f7"
+    />
+
+    <text
+        x="-2"
+        y="7"
+        text-anchor="middle"
+        font-size="10"
+        font-weight="900"
+        fill="#0877d1"
+    >
+        5
+    </text>
+
+</g>
+
+</svg>
+
+</div>
+
+
+<!-- BOTON CORAZON -->
+
+<div
+    class="controls"
+    id="controls"
+>
+
+<button
+    class="heart-button"
+    id="startButton"
+    type="button"
+    aria-label="Comenzar"
+>
+
+<svg
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+<path
+    d="
+        M20.84 4.61
+        a5.5 5.5 0 0 0-7.78 0
+        L12 5.67
+        l-1.06-1.06
+        a5.5 5.5 0 0 0-7.78 7.78
+        l1.06 1.06
+        L12 21.23
+        l7.78-7.78
+        1.06-1.06
+        a5.5 5.5 0 0 0 0-7.78z
+    "
+></path>
+
+</svg>
+
+</button>
+
+</div>
+
+
+<div
+    class="start-text"
+    id="startText"
+>
+    Presiona el corazón para comenzar ❤️
+</div>
+
+
+<div
+    class="message"
+    id="message"
+></div>
+
+
+<!-- =================================================
+     CONTRASEÑA
+================================================= -->
+
+<div
+    class="password-screen"
+    id="passwordScreen"
+>
+
+<div class="password-icon">
+    🔐
+</div>
+
+<h2>
+    Nuestra fecha especial ❤️
+</h2>
+
+<p>
+
+    Llegaste hasta aquí...
+
+    <br>
+
+    Ahora solo falta una última cosa. 🥰
+
+    <br><br>
+
+    <strong>
+        Ingresa nuestra fecha especial.
+    </strong>
+
+</p>
+
+
+<div
+    class="password-display"
+    id="passwordDisplay"
+>
+    • • • •
+</div>
+
+
+<div class="keypad">
+
+<button class="key" data-number="1">1</button>
+<button class="key" data-number="2">2</button>
+<button class="key" data-number="3">3</button>
+
+<button class="key" data-number="4">4</button>
+<button class="key" data-number="5">5</button>
+<button class="key" data-number="6">6</button>
+
+<button class="key" data-number="7">7</button>
+<button class="key" data-number="8">8</button>
+<button class="key" data-number="9">9</button>
+
+<button
+    class="key delete"
+    id="deleteButton"
+>
+    ⌫
+</button>
+
+<button
+    class="key"
+    data-number="0"
+>
+    0
+</button>
+
+<button
+    class="key enter"
+    id="enterButton"
+>
+    ♥️
+</button>
+
+</div>
+
+
+<div
+    class="password-error"
+    id="passwordError"
+></div>
+
+</div>
+
+
+<!-- =================================================
+     REGALO
+================================================= -->
+
+<div
+    class="gift-screen"
+    id="giftScreen"
+>
+
+
+<span class="star s1"></span>
+<span class="star s2"></span>
+<span class="star s3"></span>
+<span class="star s4"></span>
+<span class="star s5"></span>
+<span class="star s6"></span>
+<span class="star s7"></span>
+<span class="star s8"></span>
+<span class="star s9"></span>
+<span class="star s10"></span>
+
+
+<div class="saturn-container">
+
+    <div class="saturn-ring-back"></div>
+
+    <div class="saturn-planet"></div>
+
+    <div class="saturn-ring-front"></div>
+
+</div>
+
+
+<h2 class="gift-title">
+    Nuestro pequeño universo ❤️
+</h2>
+
+
+<p class="gift-subtitle">
+
+    Si llegaste hasta aquí, todavía quedan
+    tres pequeñas sorpresas por descubrir...
+
+    <br>
+
+    Elige un carrito y descubre qué escondí para ti. 🥰
+
+</p>
+
+
+<div class="car-collection">
+
+
+<!-- CARRITO 1 -->
+
+<button
+    class="car-card blue"
+    data-special="1"
+    type="button"
+>
+
+<span class="car-card-number">
+    01
+</span>
+
+<div class="image-container">
+
+    <img
+        class="hotwheel-image"
+        src="carrito1.jpg"
+        alt="Hot Wheels especial 1"
+        loading="eager"
+    >
+
+</div>
+
+<h3>
+    Para ti ❤️
+</h3>
+
+<p>
+    Un pequeño mensaje que
+    guardé especialmente para ti.
+</p>
+
+<span class="tap-hint">
+    Toca para descubrir ✨
+</span>
+
+</button>
+
+
+<!-- CARRITO 2 -->
+
+<button
+    class="car-card pink"
+    data-special="2"
+    type="button"
+>
+
+<span class="car-card-number">
+    02
+</span>
+
+<div class="image-container">
+
+    <img
+        class="hotwheel-image"
+        src="carrito2.jpg"
+        alt="Hot Wheels especial 2"
+        loading="eager"
+    >
+
+</div>
+
+<h3>
+    Un recuerdo 💕
+</h3>
+
+<p>
+    Una pequeña sorpresa
+    sobre nosotros.
+</p>
+
+<span class="tap-hint">
+    Toca para descubrir ✨
+</span>
+
+</button>
+
+
+<!-- CARRITO 3 -->
+
+<button
+    class="car-card purple"
+    data-special="3"
+    type="button"
+>
+
+<span class="car-card-number">
+    03
+</span>
+
+<div class="image-container">
+
+    <img
+        class="hotwheel-image"
+        src="carrito3.jpg"
+        alt="Hot Wheels especial 3"
+        loading="eager"
+    >
+
+</div>
+
+<h3>
+    Y por último... ✨
+</h3>
+
+<p>
+    Algo que quiero
+    decirte desde el corazón.
+</p>
+
+<span class="tap-hint">
+    Toca para descubrir ✨
+</span>
+
+</button>
+
+
+</div>
+
+
+<div class="gift-decoration">
+    ✦ · · · ❤️ · · · ✦
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<!-- =================================================
+     RAMITO DE FLORES - SEGUNDO HOT WHEELS
+================================================= -->
+
+<div
+    class="flower-screen"
+    id="flowerScreen"
+    aria-hidden="true"
+>
+
+    <div class="flower-back"></div>
+
+    <div class="flower-inner">
+
+        <button
+            class="flower-close"
+            id="closeFlowers"
+            type="button"
+            aria-label="Volver"
+        >
+            ×
+        </button>
+
+        <div class="flower-kicker">
+            Una sorpresa hecha para ti ✨
+        </div>
+
+        <h2 class="flower-title">
+            Un detalle para mi chico 💙
+        </h2>
+
+        <p class="flower-subtitle">
+            Porque no quería regalarte cualquier cosa...
+            hice este ramito pensando en ti, con algo que sé que te gusta: Hot Wheels. 🏎️💙
+        </p>
+
+        <div class="bouquet-area">
+
+            <div class="bouquet-stem stem1"></div>
+            <div class="bouquet-stem stem2"></div>
+            <div class="bouquet-stem stem3"></div>
+            <div class="bouquet-stem stem4"></div>
+            <div class="bouquet-stem stem5"></div>
+
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="leaf leaf3"></div>
+            <div class="leaf leaf4"></div>
+
+            <div class="flower blue f1">
+
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+
+                <div class="flower-center">
+
+                    <img
+                        src="flor1.jpg"
+                        alt="Hot Wheels de la flor 1"
+                    >
+
+                    <span>
+                        Agrega<br>flor1.jpg
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="flower sky f2">
+
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+
+                <div class="flower-center">
+
+                    <img
+                        src="flor2.jpg"
+                        alt="Hot Wheels de la flor 2"
+                    >
+
+                    <span>
+                        Agrega<br>flor2.jpg
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="flower royal f3">
+
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+
+                <div class="flower-center">
+
+                    <img
+                        src="flor3.jpg"
+                        alt="Hot Wheels de la flor 3"
+                    >
+
+                    <span>
+                        Agrega<br>flor3.jpg
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="flower cyan f4">
+
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+
+                <div class="flower-center">
+
+                    <img
+                        src="flor4.jpg"
+                        alt="Hot Wheels de la flor 4"
+                    >
+
+                    <span>
+                        Agrega<br>flor4.jpg
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="flower navy f5">
+
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+                <span class="petal"></span>
+
+                <div class="flower-center">
+
+                    <img
+                        src="flor5.jpg"
+                        alt="Hot Wheels de la flor 5"
+                    >
+
+                    <span>
+                        Agrega<br>flor5.jpg
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="bouquet-ribbon">
+
+                <div class="ribbon-knot"></div>
+
+            </div>
+
+            <div class="flower-note">
+
+                <strong>
+                    Para ti, mi amor:
+                </strong>
+
+                <br>
+
+                si pudiera regalarte una flor por cada vez que pienso en ti,
+                necesitaría un jardín entero. 💙🌷
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     VIDEO - TERCER HOT WHEELS
+================================================= -->
+
+<div
+    class="video-screen"
+    id="videoScreen"
+    aria-hidden="true"
+>
+
+    <button
+        class="video-close"
+        id="closeVideo"
+        type="button"
+        aria-label="Cerrar video"
+    >
+        ×
+    </button>
+
+
+    <div class="video-inner">
+
+        <div class="video-kicker">
+            Una última sorpresa ✨
+        </div>
+
+
+        <h2 class="video-title">
+            Esto es para ti, amorcito ❤️
+        </h2>
+
+
+        <p class="video-subtitle">
+
+            Llegaste hasta el último carrito...
+            así que ahora quiero compartir contigo
+            algo muy especial. 🥹💕
+
+        </p>
+
+
+        <div class="youtube-container">
+
+            <iframe
+                id="youtubeVideo"
+                src=""
+                title="Un video especial para ti"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            >
+            </iframe>
+
+        </div>
+
+
+        <div class="video-message">
+
+            Espero que disfrutes este pequeño detalle
+            tanto como yo disfruté preparándolo para ti. ❤️
+
+        </div>
+
+
+        <div class="video-heart">
+            ♥
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     MODAL GENERAL
+================================================= -->
+
+<div
+    class="special-modal"
+    id="specialModal"
+    aria-hidden="true"
+>
+
+<div class="modal-content">
+
+<button
+    class="close-modal"
+    id="closeModal"
+    type="button"
+    aria-label="Cerrar"
+>
+    ×
+</button>
+
+<div
+    class="modal-icon"
+    id="modalIcon"
+>
+    ❤️
+</div>
+
+<h2
+    id="modalTitle"
+>
+    Para ti ❤️
+</h2>
+
+<p
+    id="modalText"
+></p>
+
+<div class="modal-heart">
+    ♥
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+     CARTA PARA TU ENAMORADO
+================================================= -->
+
+<div
+    class="special-modal letter-modal"
+    id="letterModal"
+    aria-hidden="true"
+>
+
+<div class="modal-content">
+
+
+<button
+    class="close-modal"
+    id="closeLetter"
+    type="button"
+    aria-label="Cerrar carta"
+>
+    ×
+</button>
+
+
+<!-- ENCABEZADO DE CARTA -->
+
+<div class="letter-top">
+
+    <div class="letter-small">
+        UNA CARTITA PARA TI
+    </div>
+
+    <h2>
+        Para mi amorcito ❤️
+    </h2>
+
+    <div class="letter-date">
+        Con mucho amor, para ti ✨
+    </div>
+
+</div>
+
+
+<!-- TEXTO -->
+
+<div class="letter-body">
+
+    <div class="letter-greeting">
+        Mi amorcito:
+    </div>
+
+
+    <p>
+        Una vez nos preguntaron: “¿Y qué se regalan dos electrónicos?” 🤔⚡ 
+        Y pues… después de pensarlo un poquito, creo que ya tengo la respuesta. 
+        Porque entre circuitos, códigos, cables y sensores, también podemos 
+        tener nuestros propios detallitos. 🤭❤️
+    </p>
+
+    <p>
+        Así que, como buena ingeniera electrónica, decidí hacer mi propio 
+        experimento…  y este es el resultado: un pequeño detalle que es 
+        para ti 🏎️💨.  Lo hice pensando en ti, porque sé que te gustan
+        y porque quería darte algo que te sacara una sonrisita.
+    </p>
+
+    <p> 
+        Sé que recién llevamos poquito tiempo juntos,pero en este poquito 
+        tiempo te has vuelto alguien muy especial para mí. Me encanta cómo 
+        poco a poco nos vamos conociendo,nuestras conversaciones, nuestras 
+        bromas, los momentos juntos y todas esas pequeñas cosas que hacen 
+        que estar contigo se sienta tan bonito.
+    </p>
+
+    <p>
+        No sé qué nos prepare el camino, pero sí sé que quiero seguir 
+        disfrutando cada momento contigo, conocerte cada día un poquito
+        más y crear muchos recuerdos juntos. 🥹💕
+    </p>
+
+    <p>
+        Espero que este pequeño regalo te guste tanto como a mí me 
+        gustó elegirlo para ti 🏎️❤️.
+    </p>
+
+    
+    <p>
+        P.D.: Prometo que no calculé el circuito para saber cuánto me gustas…
+        pero definitivamente hay mucha corriente entre nosotros. ⚡❤️
+    </p>
+
+
+    <div class="signature">
+
+        Te amo muchísimo, amorcito. ❤️
+
+        <br>
+
+        ❤️🥰❤️
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     FOTOS
+================================================= -->
+
+<div class="letter-photos">
+
+
+<div class="letter-photo">
+
+    <img
+        src="foto1.jpeg"
+        alt="Nuestro recuerdo 1"
+    >
+
+    <div class="photo-caption">
+        Un momento nuestro ❤️
+    </div>
+
+</div>
+
+
+<div class="letter-photo">
+
+    <img
+        src="foto2.jpeg"
+        alt="Nuestro recuerdo 2"
+    >
+
+    <div class="photo-caption">
+        Otro recuerdo contigo 💕
+    </div>
+
+</div>
+
+
+<div class="letter-photo">
+
+    <img
+        src="foto3.jpeg"
+        alt="Nuestro recuerdo 3"
+    >
+
+    <div class="photo-caption">
+        Y los que faltan... ✨
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- FINAL -->
+
+<div class="letter-footer">
+
+    <div class="letter-footer-line"></div>
+
+    <div class="letter-footer-heart">
+        ♥
+    </div>
+
+    <div class="letter-footer-text">
+        CONTIGO, SIEMPRE ❤️
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const svg =
+    document.getElementById("raceSvg");
+
+const road =
+    document.getElementById("road");
+
+const car =
+    document.getElementById("car");
+
+const startButton =
+    document.getElementById("startButton");
+
+const startText =
+    document.getElementById("startText");
+
+const message =
+    document.getElementById("message");
+
+const controls =
+    document.getElementById("controls");
+
+const passwordScreen =
+    document.getElementById("passwordScreen");
+
+const passwordDisplay =
+    document.getElementById("passwordDisplay");
+
+const passwordError =
+    document.getElementById("passwordError");
+
+const giftScreen =
+    document.getElementById("giftScreen");
+
+const deleteButton =
+    document.getElementById("deleteButton");
+
+const enterButton =
+    document.getElementById("enterButton");
+
+
+/* =====================================================
+   CARRERA
+===================================================== */
+
+let distance = 0;
+
+let started = false;
+
+const roadLength =
+    road.getTotalLength();
+
+const speed = 2.5;
+
+
+/* =====================================================
+   POSICION CARRO
+===================================================== */
+
+function placeCar(progress) {
+
+    const current =
+        road.getPointAtLength(
+            progress * roadLength
+        );
+
+    const next =
+        road.getPointAtLength(
+            Math.min(
+                progress * roadLength + 1,
+                roadLength
+            )
+        );
+
+    const angle =
+        Math.atan2(
+            next.y - current.y,
+            next.x - current.x
+        )
+        * 180
+        / Math.PI;
+
+    car.setAttribute(
+        "transform",
+        `
+        translate(
+            ${current.x}
+            ${current.y}
+        )
+        rotate(${angle})
+        `
+    );
+}
+
+
+/* =====================================================
+   ANIMACION CARRERA
+===================================================== */
+
+function animateCar() {
+
+    if (!started) {
+        return;
+    }
+
+    distance += speed;
+
+    const progress =
+        distance / roadLength;
+
+    if (progress >= 1) {
+
+        distance =
+            roadLength;
+
+        placeCar(1);
+
+        started = false;
+
+        message.textContent =
+            "🏁 Llegaste a la meta ❤️";
+
+        message.classList.add(
+            "finished"
+        );
+
+        setTimeout(() => {
+
+            svg.style.display =
+                "none";
+
+            controls.style.display =
+                "none";
+
+            startText.style.display =
+                "none";
+
+            message.style.display =
+                "none";
+
+            passwordScreen.classList.add(
+                "show"
+            );
+
+        }, 900);
+
+        return;
+    }
+
+    placeCar(progress);
+
+    requestAnimationFrame(
+        animateCar
+    );
+}
+
+
+/* =====================================================
+   BOTON CORAZON
+===================================================== */
+
+startButton.addEventListener(
+    "click",
+    () => {
+
+        if (started) {
+            return;
+        }
+
+        startButton.classList.add(
+            "glow"
+        );
+
+        setTimeout(() => {
+
+            startButton.classList.remove(
+                "glow"
+            );
+
+        }, 850);
+
+        startText.textContent =
+            "Nuestro viaje acaba de comenzar... ❤️";
+
+        started = true;
+
+        distance = 0;
+
+        placeCar(0);
+
+        animateCar();
+
+    }
+);
+
+
+/* =====================================================
+   CONTRASEÑA
+===================================================== */
+
+let enteredPassword = "";
+
+const correctPassword =
+    "2308";
+
+
+function updatePasswordDisplay() {
+
+    let display = "";
+
+    for (
+        let i = 0;
+        i < 4;
+        i++
+    ) {
+
+        if (
+            i <
+            enteredPassword.length
+        ) {
+
+            display +=
+                "♥ ";
+
+        } else {
+
+            display +=
+                "• ";
+        }
+    }
+
+    passwordDisplay.textContent =
+        display.trim();
+}
+
+
+/* =====================================================
+   NUMEROS
+===================================================== */
+
+document
+    .querySelectorAll(
+        ".key[data-number]"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    enteredPassword.length >= 4
+                ) {
+                    return;
+                }
+
+                enteredPassword +=
+                    button.dataset.number;
+
+                passwordError.textContent =
+                    "";
+
+                updatePasswordDisplay();
+
+                if (
+                    enteredPassword.length === 4
+                ) {
+
+                    setTimeout(
+                        checkPassword,
+                        300
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   BORRAR
+===================================================== */
+
+deleteButton.addEventListener(
+    "click",
+    () => {
+
+        enteredPassword =
+            enteredPassword.slice(
+                0,
+                -1
+            );
+
+        passwordError.textContent =
+            "";
+
+        updatePasswordDisplay();
+
+    }
+);
+
+
+/* =====================================================
+   COMPROBAR CONTRASEÑA
+===================================================== */
+
+function checkPassword() {
+
+    if (
+        enteredPassword ===
+        correctPassword
+    ) {
+
+        passwordError.textContent =
+            "";
+
+        passwordScreen.classList.remove(
+            "show"
+        );
+
+        giftScreen.classList.add(
+            "show"
+        );
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    } else {
+
+        passwordError.textContent =
+            "Esa no es... intenta otra vez, amor ❤️";
+
+        enteredPassword = "";
+
+        updatePasswordDisplay();
+
+    }
+}
+
+
+/* =====================================================
+   ENTER
+===================================================== */
+
+enterButton.addEventListener(
+    "click",
+    () => {
+
+        if (
+            enteredPassword.length === 0
+        ) {
+            return;
+        }
+
+        checkPassword();
+
+    }
+);
+
+
+/* =====================================================
+   DATOS DE LAS SORPRESAS
+===================================================== */
+
+const specialData = {
+
+    2: {
+
+        icon: "📸",
+
+        title:
+            "Un recuerdo nuestro 💕",
+
+        text:
+            "Aquí puedes colocar nuestro recuerdo " +
+            "favorito, una foto especial, nuestra " +
+            "primera salida o cualquier momento " +
+            "que quieras guardar para siempre. " +
+            "Este carrito queda reservado para ese recuerdo. ❤️"
+
+    },
+
+    3: {
+
+        icon: "✨",
+
+        title:
+            "Lo que viene... 🥹",
+
+        text:
+            "Y este último carrito es para todo " +
+            "lo que todavía nos falta vivir. " +
+            "Más momentos, más aventuras, más risas " +
+            "y muchos recuerdos juntos. " +
+            "Este es apenas el comienzo de nuestra historia. ❤️"
+
+    }
+
+};
+
+
+/* =====================================================
+   MODAL NORMAL
+===================================================== */
+
+const specialModal =
+    document.getElementById(
+        "specialModal"
+    );
+
+const modalIcon =
+    document.getElementById(
+        "modalIcon"
+    );
+
+const modalTitle =
+    document.getElementById(
+        "modalTitle"
+    );
+
+const modalText =
+    document.getElementById(
+        "modalText"
+    );
+
+const closeModal =
+    document.getElementById(
+        "closeModal"
+    );
+
+
+/* =====================================================
+   CARTA
+===================================================== */
+
+const letterModal =
+    document.getElementById(
+        "letterModal"
+    );
+
+const closeLetter =
+    document.getElementById(
+        "closeLetter"
+    );
+
+
+/* =====================================================
+   RAMITO DE FLORES
+===================================================== */
+
+const flowerScreen =
+    document.getElementById(
+        "flowerScreen"
+    );
+
+const closeFlowers =
+    document.getElementById(
+        "closeFlowers"
+    );
+
+
+/* =====================================================
+   VIDEO DE YOUTUBE
+===================================================== */
+
+const videoScreen =
+    document.getElementById(
+        "videoScreen"
+    );
+
+const closeVideo =
+    document.getElementById(
+        "closeVideo"
+    );
+
+const youtubeVideo =
+    document.getElementById(
+        "youtubeVideo"
+    );
+
+
+/*
+    ID DEL VIDEO:
+
+    https://youtu.be/x-0KoCAV4mc
+
+    ID = x-0KoCAV4mc
+*/
+
+const youtubeVideoURL =
+    "https://www.youtube.com/embed/x-0KoCAV4mc";
+
+
+/* =====================================================
+   ABRIR VIDEO
+===================================================== */
+
+function openVideoScreen() {
+
+    youtubeVideo.src =
+        youtubeVideoURL;
+
+    videoScreen.classList.add(
+        "show"
+    );
+
+    videoScreen.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =====================================================
+   CERRAR VIDEO
+===================================================== */
+
+function closeVideoScreen() {
+
+    /*
+       Quitamos el src para que el video
+       se detenga completamente al cerrar.
+    */
+
+    youtubeVideo.src = "";
+
+    videoScreen.classList.remove(
+        "show"
+    );
+
+    videoScreen.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+
+closeVideo.addEventListener(
+    "click",
+    closeVideoScreen
+);
+
+
+videoScreen.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            videoScreen
+        ) {
+
+            closeVideoScreen();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CLIC EN LOS TRES CARRITOS
+===================================================== */
+
+document
+    .querySelectorAll(
+        ".car-card"
+    )
+    .forEach(card => {
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                const number =
+                    card.dataset.special;
+
+
+                /* PRIMER CARRITO = CARTA */
+
+                if (number === "1") {
+
+                    letterModal.classList.add(
+                        "show"
+                    );
+
+                    letterModal.setAttribute(
+                        "aria-hidden",
+                        "false"
+                    );
+
+                    document.body.style.overflow =
+                        "hidden";
+
+                    return;
+                }
+
+
+                /* SEGUNDO CARRITO = RAMITO DE FLORES */
+
+                if (number === "2") {
+
+                    flowerScreen.classList.add(
+                        "show"
+                    );
+
+                    flowerScreen.setAttribute(
+                        "aria-hidden",
+                        "false"
+                    );
+
+                    document.body.style.overflow =
+                        "hidden";
+
+                    return;
+                }
+
+
+                /* TERCER CARRITO = VIDEO */
+
+                if (number === "3") {
+
+                    openVideoScreen();
+
+                    return;
+                }
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   CERRAR MODAL NORMAL
+===================================================== */
+
+function closeSpecialModal() {
+
+    specialModal.classList.remove(
+        "show"
+    );
+
+    specialModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+closeModal.addEventListener(
+    "click",
+    closeSpecialModal
+);
+
+
+specialModal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            specialModal
+        ) {
+
+            closeSpecialModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CERRAR CARTA
+===================================================== */
+
+function closeLetterModal() {
+
+    letterModal.classList.remove(
+        "show"
+    );
+
+    letterModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+closeLetter.addEventListener(
+    "click",
+    closeLetterModal
+);
+
+
+letterModal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            letterModal
+        ) {
+
+            closeLetterModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CERRAR RAMITO
+===================================================== */
+
+function closeFlowerScreen() {
+
+    flowerScreen.classList.remove(
+        "show"
+    );
+
+    flowerScreen.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+closeFlowers.addEventListener(
+    "click",
+    closeFlowerScreen
+);
+
+flowerScreen.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            flowerScreen
+        ) {
+
+            closeFlowerScreen();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   IMAGENES DEL RAMITO
+===================================================== */
+
+document
+    .querySelectorAll(
+        ".flower-center img"
+    )
+    .forEach(img => {
+
+        img.addEventListener(
+            "error",
+            () => {
+
+                img.style.display =
+                    "none";
+
+                const placeholder =
+                    img.nextElementSibling;
+
+                if (placeholder) {
+
+                    placeholder.style.display =
+                        "flex";
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   ESC
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key !== "Escape"
+        ) {
+            return;
+        }
+
+
+        /* VIDEO */
+
+        if (
+            videoScreen.classList.contains(
+                "show"
+            )
+        ) {
+
+            closeVideoScreen();
+
+            return;
+        }
+
+
+        /* RAMITO */
+
+        if (
+            flowerScreen.classList.contains(
+                "show"
+            )
+        ) {
+
+            closeFlowerScreen();
+
+            return;
+        }
+
+
+        /* CARTA */
+
+        if (
+            letterModal.classList.contains(
+                "show"
+            )
+        ) {
+
+            closeLetterModal();
+
+            return;
+        }
+
+
+        /* MODAL NORMAL */
+
+        if (
+            specialModal.classList.contains(
+                "show"
+            )
+        ) {
+
+            closeSpecialModal();
+
+            return;
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INICIALIZAR
+===================================================== */
+
+placeCar(0);
+
+updatePasswordDisplay();
+
+</script>
+
+</body>
+
+</html>
